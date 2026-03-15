@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────
+   CIDE — Design System Tokens
+───────────────────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color Palette */
+  --cide-black:     #050505;
+  --cide-dark:      #0D0D0D;
+  --cide-surface:   #111111;
+  --cide-border:    #1E1E1E;
+  --cide-gold:      #C9A96E;
+  --cide-gold-dim:  #8A6E45;
+  --cide-cream:     #F5F0E8;
+  --cide-cream-dim: #A89E90;
+  --cide-white:     #FFFFFF;
+
+  /* Typography Scale */
+  --font-display:   var(--font-cormorant), "Georgia", serif;
+  --font-body:      var(--font-inter), "Helvetica Neue", sans-serif;
+
+  /* Spacing base */
+  --section-py: clamp(5rem, 10vw, 9rem);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─────────────────────────────────────────────────────────────
+   Base Reset & Body
+───────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cide-black);
+  color: var(--cide-cream);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Typography Utilities
+───────────────────────────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #C9A96E 0%, #F5DFA0 50%, #C9A96E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Grain Texture Overlay
+───────────────────────────────────────────────────────────── */
+
+.grain-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Section Base
+───────────────────────────────────────────────────────────── */
+
+.section-base {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+  padding-left: clamp(1.5rem, 6vw, 6rem);
+  padding-right: clamp(1.5rem, 6vw, 6rem);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Scrollbar
+───────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cide-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cide-gold-dim);
+  border-radius: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Selection
+───────────────────────────────────────────────────────────── */
+
+::selection {
+  background: var(--cide-gold);
+  color: var(--cide-black);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Focus ring
+───────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 1px solid var(--cide-gold);
+  outline-offset: 3px;
 }
