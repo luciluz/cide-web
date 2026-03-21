@@ -19,7 +19,7 @@ export default function Footer() {
         <footer
             className="border-t"
             style={{
-                borderColor: 'rgba(201,169,110,0.1)',
+                borderColor: 'rgba(92,35,9,0.1)',
                 background: 'var(--cide-dark)',
             }}
         >
@@ -41,14 +41,14 @@ export default function Footer() {
                             CIDE
                         </p>
                         <p
-                            className="text-[10px] tracking-[0.2em] uppercase text-[#A89E90] mb-4"
-                            style={{ fontFamily: 'var(--font-body)' }}
+                            className="text-[10px] tracking-[0.2em] uppercase mb-4"
+                            style={{ fontFamily: 'var(--font-body)', color: '#7A6955' }}
                         >
                             {SITE_META.fullName}
                         </p>
                         <p
-                            className="text-sm text-[#A89E90] leading-relaxed max-w-xs"
-                            style={{ fontFamily: 'var(--font-body)' }}
+                            className="text-sm leading-relaxed max-w-xs"
+                            style={{ fontFamily: 'var(--font-body)', color: '#7A6955' }}
                         >
                             {SITE_META.tagline}
                         </p>
@@ -63,8 +63,8 @@ export default function Footer() {
                         variants={fadeUp}
                     >
                         <p
-                            className="text-[9px] tracking-[0.25em] uppercase text-[#C9A96E]/60 mb-5"
-                            style={{ fontFamily: 'var(--font-body)' }}
+                            className="text-[9px] tracking-[0.25em] uppercase mb-5"
+                            style={{ fontFamily: 'var(--font-body)', color: 'rgba(92,35,9,0.5)' }}
                         >
                             Navegación
                         </p>
@@ -73,8 +73,10 @@ export default function Footer() {
                                 <li key={link.href}>
                                     <a
                                         href={link.href}
-                                        className="text-sm text-[#A89E90] hover:text-[#C9A96E] transition-colors duration-300"
-                                        style={{ fontFamily: 'var(--font-body)' }}
+                                        className="text-sm transition-colors duration-300"
+                                        style={{ fontFamily: 'var(--font-body)', color: '#7A6955' }}
+                                        onMouseEnter={e => (e.currentTarget.style.color = '#5C2309')}
+                                        onMouseLeave={e => (e.currentTarget.style.color = '#7A6955')}
                                     >
                                         {link.label}
                                     </a>
@@ -92,22 +94,24 @@ export default function Footer() {
                         variants={fadeUp}
                     >
                         <p
-                            className="text-[9px] tracking-[0.25em] uppercase text-[#C9A96E]/60 mb-5"
-                            style={{ fontFamily: 'var(--font-body)' }}
+                            className="text-[9px] tracking-[0.25em] uppercase mb-5"
+                            style={{ fontFamily: 'var(--font-body)', color: 'rgba(92,35,9,0.5)' }}
                         >
                             Contacto
                         </p>
                         <div className="flex flex-col gap-2">
                             <a
                                 href={`https://${SITE_META.domain}`}
-                                className="text-sm text-[#A89E90] hover:text-[#C9A96E] transition-colors duration-300"
-                                style={{ fontFamily: 'var(--font-body)' }}
+                                className="text-sm transition-colors duration-300"
+                                style={{ fontFamily: 'var(--font-body)', color: '#7A6955' }}
+                                onMouseEnter={e => (e.currentTarget.style.color = '#5C2309')}
+                                onMouseLeave={e => (e.currentTarget.style.color = '#7A6955')}
                             >
                                 {SITE_META.domain}
                             </a>
                             <p
-                                className="text-sm text-[#A89E90]"
-                                style={{ fontFamily: 'var(--font-body)' }}
+                                className="text-sm"
+                                style={{ fontFamily: 'var(--font-body)', color: '#7A6955' }}
                             >
                                 {SITE_META.location}
                             </p>
@@ -122,17 +126,17 @@ export default function Footer() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                     className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4"
-                    style={{ borderTop: '1px solid rgba(201,169,110,0.08)' }}
+                    style={{ borderTop: '1px solid rgba(92,35,9,0.08)' }}
                 >
                     <p
-                        className="text-[10px] tracking-[0.15em] text-[#A89E90]/50"
-                        style={{ fontFamily: 'var(--font-body)' }}
+                        className="text-[10px] tracking-[0.15em]"
+                        style={{ fontFamily: 'var(--font-body)', color: 'rgba(122,105,85,0.5)' }}
                     >
                         © {year} CIDE — Todos los derechos reservados
                     </p>
                     <p
-                        className="text-[10px] tracking-[0.15em] text-[#A89E90]/30 italic"
-                        style={{ fontFamily: 'var(--font-display)' }}
+                        className="text-[10px] tracking-[0.15em] italic"
+                        style={{ fontFamily: 'var(--font-display)', color: 'rgba(122,105,85,0.35)' }}
                     >
                         Desde el sur del mundo, hacia adentro.
                     </p>

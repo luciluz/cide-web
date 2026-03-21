@@ -40,12 +40,12 @@ export default function PurposeSection() {
         <section
             id="nosotros"
             className="relative overflow-hidden"
-            style={{ background: 'var(--cide-black)' }}
+            style={{ background: 'var(--cide-surface)' }}
         >
             {/* Subtle top border accent */}
             <div
                 className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(201,169,110,0.15), transparent)' }}
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(92,35,9,0.12), transparent)' }}
             />
 
             <div className="section-base">
@@ -58,16 +58,17 @@ export default function PurposeSection() {
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <p
-                            className="text-[10px] tracking-[0.28em] uppercase text-[#C9A96E]/60 mb-4"
-                            style={{ fontFamily: 'var(--font-body)' }}
+                            className="text-[10px] tracking-[0.28em] uppercase mb-4"
+                            style={{ fontFamily: 'var(--font-body)', color: 'rgba(92,35,9,0.55)' }}
                         >
                             Quiénes somos
                         </p>
                         <h2
-                            className="font-display font-light text-[#F5F0E8] leading-tight"
+                            className="font-display font-light leading-tight"
                             style={{
                                 fontFamily: 'var(--font-display)',
                                 fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+                                color: '#5C2309',
                             }}
                         >
                             Un espacio para<br />
@@ -84,8 +85,8 @@ export default function PurposeSection() {
                         className="md:max-w-[340px]"
                     >
                         <p
-                            className="text-sm text-[#A89E90] leading-loose"
-                            style={{ fontFamily: 'var(--font-body)' }}
+                            className="text-sm leading-loose"
+                            style={{ fontFamily: 'var(--font-body)', color: '#7A6955' }}
                         >
                             Desde el sur austral de Chile, el CIDE articula investigación y
                             práctica espiritual en un diálogo activo con diversas tradiciones
@@ -112,8 +113,8 @@ export default function PurposeSection() {
                             >
                                 {/* Number */}
                                 <span
-                                    className="text-[10px] tracking-[0.15em] text-[#C9A96E]/40 mt-1 flex-shrink-0 w-6"
-                                    style={{ fontFamily: 'var(--font-body)' }}
+                                    className="text-[10px] tracking-[0.15em] mt-1 flex-shrink-0 w-6"
+                                    style={{ fontFamily: 'var(--font-body)', color: 'rgba(92,35,9,0.35)' }}
                                 >
                                     {pillar.number}
                                 </span>
@@ -122,17 +123,17 @@ export default function PurposeSection() {
                                     {/* Divider */}
                                     <div
                                         className="h-px w-10 transition-all duration-500 group-hover:w-16"
-                                        style={{ background: 'rgba(201,169,110,0.4)' }}
+                                        style={{ background: 'rgba(92,35,9,0.3)' }}
                                     />
                                     <h3
-                                        className="font-display font-medium text-[#F5F0E8] text-xl md:text-2xl"
-                                        style={{ fontFamily: 'var(--font-display)' }}
+                                        className="font-display font-medium text-xl md:text-2xl"
+                                        style={{ fontFamily: 'var(--font-display)', color: '#5C2309' }}
                                     >
                                         {pillar.title}
                                     </h3>
                                     <p
-                                        className="text-sm text-[#A89E90] leading-loose"
-                                        style={{ fontFamily: 'var(--font-body)' }}
+                                        className="text-sm leading-loose"
+                                        style={{ fontFamily: 'var(--font-body)', color: '#7A6955' }}
                                     >
                                         {pillar.text}
                                     </p>
@@ -152,7 +153,7 @@ export default function PurposeSection() {
                         {/* Glow behind image */}
                         <div
                             className="absolute inset-0 -z-10 rounded-full blur-3xl scale-75"
-                            style={{ background: 'radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%)' }}
+                            style={{ background: 'radial-gradient(circle, rgba(92,35,9,0.06) 0%, transparent 70%)' }}
                         />
 
                         <div className="relative w-full aspect-square max-w-md mx-auto">
@@ -161,13 +162,13 @@ export default function PurposeSection() {
                                 alt="Cuenco tibetano — Sanación con sonido"
                                 fill
                                 className="object-contain"
-                                style={{ mixBlendMode: 'luminosity' }}
+                                style={{ mixBlendMode: 'multiply' }}
                             />
                             {/* Vignette rim */}
                             <div
                                 className="absolute inset-0 rounded-full pointer-events-none"
                                 style={{
-                                    boxShadow: 'inset 0 0 60px 40px var(--cide-black)',
+                                    boxShadow: 'inset 0 0 60px 40px var(--cide-surface)',
                                 }}
                             />
                         </div>
@@ -178,11 +179,15 @@ export default function PurposeSection() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="absolute -bottom-4 -left-4 md:-left-10 bg-[#111111] border border-[rgba(201,169,110,0.1)] p-5 max-w-[220px]"
+                            className="absolute -bottom-4 -left-4 md:-left-10 p-5 max-w-[220px]"
+                            style={{
+                                background: 'var(--cide-dark)',
+                                border: '1px solid rgba(92,35,9,0.1)',
+                            }}
                         >
                             <p
-                                className="text-sm font-display italic text-[#C9A96E]/80 leading-snug"
-                                style={{ fontFamily: 'var(--font-display)' }}
+                                className="text-sm font-display italic leading-snug"
+                                style={{ fontFamily: 'var(--font-display)', color: 'rgba(92,35,9,0.7)' }}
                             >
                                 &ldquo;Prosperidad integral<br />de la vida en el planeta.&rdquo;
                             </p>

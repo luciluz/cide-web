@@ -5,16 +5,24 @@
 ───────────────────────────────────────────────────────────── */
 
 :root {
-  /* Color Palette */
-  --cide-black:     #050505;
-  --cide-dark:      #0D0D0D;
-  --cide-surface:   #111111;
-  --cide-border:    #1E1E1E;
-  --cide-gold:      #C9A96E;
-  --cide-gold-dim:  #8A6E45;
-  --cide-cream:     #F5F0E8;
-  --cide-cream-dim: #A89E90;
+  /* Color Palette — Paleta CIDE (Crema + Marrón) */
+  --cide-cream:     #F2ECD8;   /* Fondo principal — beige cálido */
+  --cide-surface:   #EBE4CE;   /* Fondo secciones alternas */
+  --cide-dark:      #E4DCCA;   /* Fondo footer / secciones secundarias */
+  --cide-black:     #F2ECD8;   /* Alias cream — reemplaza el negro */
+  --cide-border:    #C8BC9E;   /* Bordes y separadores */
+  --cide-gold:      #5C2309;   /* Acento principal — marrón oscuro del logo */
+  --cide-gold-dim:  #8C4A20;   /* Acento hover / secundario */
+  --cide-cream-dim: #7A6955;   /* Texto secundario */
   --cide-white:     #FFFFFF;
+
+  /* Colores del logo (círculos) — usados como acentos de categoría */
+  --cide-amber:     #E8A020;
+  --cide-teal:      #1A4A3A;
+  --cide-navy:      #1A3060;
+  --cide-purple:    #6B2F8A;
+  --cide-sky:       #5A90C0;
+  --cide-brown:     #7A3A1A;
 
   /* Typography Scale */
   --font-display:   var(--font-cormorant), "Georgia", serif;
@@ -41,8 +49,8 @@ html {
 }
 
 body {
-  background-color: var(--cide-black);
-  color: var(--cide-cream);
+  background-color: var(--cide-cream);
+  color: var(--cide-gold);
   font-family: var(--font-body);
   line-height: 1.7;
   overflow-x: hidden;
@@ -57,7 +65,7 @@ body {
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #C9A96E 0%, #F5DFA0 50%, #C9A96E 100%);
+  background: linear-gradient(135deg, #5C2309 0%, #8C4A20 50%, #5C2309 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -73,7 +81,7 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 999;
-  opacity: 0.035;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
@@ -101,7 +109,7 @@ body {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cide-black);
+  background: var(--cide-dark);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--cide-gold-dim);
@@ -114,7 +122,7 @@ body {
 
 ::selection {
   background: var(--cide-gold);
-  color: var(--cide-black);
+  color: var(--cide-cream);
 }
 
 /* ─────────────────────────────────────────────────────────────

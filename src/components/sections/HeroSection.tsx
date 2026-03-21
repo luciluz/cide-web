@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-// Staggered text animation variants
 const container = {
     hidden: {},
     visible: {
@@ -39,7 +38,6 @@ const ctaFade = {
     },
 };
 
-// Scroll indicator bounce
 const scrollBounce = {
     animate: {
         y: [0, 8, 0],
@@ -54,7 +52,6 @@ export default function HeroSection() {
         offset: ['start start', 'end start'],
     });
 
-    // Parallax transforms
     const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
     const imageOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
     const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
@@ -65,14 +62,14 @@ export default function HeroSection() {
             id="inicio"
             ref={containerRef}
             className="relative w-full overflow-hidden"
-            style={{ height: '100svh', minHeight: '600px', background: 'var(--cide-black)' }}
+            style={{ height: '100svh', minHeight: '600px', background: 'var(--cide-cream)' }}
         >
             {/* Subtle radial glow background */}
             <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                     background:
-                        'radial-gradient(ellipse 70% 60% at 65% 50%, rgba(201,169,110,0.06) 0%, transparent 70%)',
+                        'radial-gradient(ellipse 70% 60% at 65% 50%, rgba(92,35,9,0.05) 0%, transparent 70%)',
                 }}
             />
 
@@ -82,7 +79,7 @@ export default function HeroSection() {
                 animate={{ scaleX: 1, opacity: 1 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                 className="absolute top-0 left-0 right-0 h-px origin-left"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent)' }}
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(92,35,9,0.2), transparent)' }}
             />
 
             {/* Main image — right side, parallaxed */}
@@ -95,7 +92,7 @@ export default function HeroSection() {
                     className="absolute inset-0 z-10"
                     style={{
                         background:
-                            'linear-gradient(to right, var(--cide-black) 0%, transparent 35%), linear-gradient(to top, var(--cide-black) 0%, transparent 25%)',
+                            'linear-gradient(to right, var(--cide-cream) 0%, transparent 35%), linear-gradient(to top, var(--cide-cream) 0%, transparent 25%)',
                     }}
                 />
                 <div className="relative h-full w-full">
@@ -105,7 +102,7 @@ export default function HeroSection() {
                         fill
                         priority
                         className="object-cover object-center"
-                        style={{ objectPosition: 'center top', mixBlendMode: 'luminosity', opacity: 0.75 }}
+                        style={{ objectPosition: 'center top', mixBlendMode: 'multiply', opacity: 0.55 }}
                     />
                 </div>
             </motion.div>
@@ -120,8 +117,8 @@ export default function HeroSection() {
                     initial={{ opacity: 0, letterSpacing: '0.1em' }}
                     animate={{ opacity: 1, letterSpacing: '0.28em' }}
                     transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
-                    className="text-[10px] uppercase text-[#C9A96E]/70 mb-8 md:mb-10"
-                    style={{ fontFamily: 'var(--font-body)', letterSpacing: '0.28em' }}
+                    className="text-[10px] uppercase mb-8 md:mb-10"
+                    style={{ fontFamily: 'var(--font-body)', letterSpacing: '0.28em', color: 'rgba(92,35,9,0.6)' }}
                 >
                     Centro de Investigación &nbsp;·&nbsp; Sur Austral de Chile
                 </motion.p>
@@ -131,10 +128,11 @@ export default function HeroSection() {
                     variants={container}
                     initial="hidden"
                     animate="visible"
-                    className="font-display font-light text-[#F5F0E8] leading-[1.0] mb-6 md:mb-8"
+                    className="font-display font-light leading-[1.0] mb-6 md:mb-8"
                     style={{
                         fontFamily: 'var(--font-display)',
                         fontSize: 'clamp(3.2rem, 7.5vw, 7.5rem)',
+                        color: '#5C2309',
                     }}
                 >
                     <motion.span variants={wordFadeUp} className="block">Camino</motion.span>
@@ -154,10 +152,11 @@ export default function HeroSection() {
                     variants={subtitleFade}
                     initial="hidden"
                     animate="visible"
-                    className="text-[#A89E90] max-w-md leading-relaxed mb-10 md:mb-12"
+                    className="max-w-md leading-relaxed mb-10 md:mb-12"
                     style={{
                         fontFamily: 'var(--font-body)',
                         fontSize: 'clamp(0.875rem, 1.2vw, 1rem)',
+                        color: '#7A6955',
                     }}
                 >
                     Investigación, práctica y acompañamiento en el camino espiritual.
@@ -180,8 +179,8 @@ export default function HeroSection() {
                         className="group inline-flex items-center gap-3 px-7 py-3.5 text-[10px] tracking-[0.22em] uppercase transition-all duration-500"
                         style={{
                             fontFamily: 'var(--font-body)',
-                            background: 'var(--cide-gold)',
-                            color: 'var(--cide-black)',
+                            background: '#5C2309',
+                            color: '#F2ECD8',
                         }}
                     >
                         Explorar Cursos
@@ -193,8 +192,20 @@ export default function HeroSection() {
                             e.preventDefault();
                             document.querySelector('#nosotros')?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="inline-flex items-center gap-3 px-7 py-3.5 text-[10px] tracking-[0.22em] uppercase border border-[#F5F0E8]/20 text-[#F5F0E8]/70 hover:border-[#C9A96E]/40 hover:text-[#C9A96E] transition-all duration-500"
-                        style={{ fontFamily: 'var(--font-body)' }}
+                        className="inline-flex items-center gap-3 px-7 py-3.5 text-[10px] tracking-[0.22em] uppercase transition-all duration-500"
+                        style={{
+                            fontFamily: 'var(--font-body)',
+                            border: '1px solid rgba(92,35,9,0.25)',
+                            color: 'rgba(92,35,9,0.6)',
+                        }}
+                        onMouseEnter={e => {
+                            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(92,35,9,0.5)';
+                            (e.currentTarget as HTMLElement).style.color = '#5C2309';
+                        }}
+                        onMouseLeave={e => {
+                            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(92,35,9,0.25)';
+                            (e.currentTarget as HTMLElement).style.color = 'rgba(92,35,9,0.6)';
+                        }}
                     >
                         Nuestro propósito
                     </a>
@@ -212,12 +223,12 @@ export default function HeroSection() {
                 <div
                     className="w-px h-10"
                     style={{
-                        background: 'linear-gradient(to bottom, rgba(201,169,110,0.6), transparent)',
+                        background: 'linear-gradient(to bottom, rgba(92,35,9,0.5), transparent)',
                     }}
                 />
                 <p
-                    className="text-[9px] tracking-[0.25em] uppercase text-[#C9A96E]/50 rotate-0"
-                    style={{ fontFamily: 'var(--font-body)' }}
+                    className="text-[9px] tracking-[0.25em] uppercase rotate-0"
+                    style={{ fontFamily: 'var(--font-body)', color: 'rgba(92,35,9,0.45)' }}
                 >
                     Scroll
                 </p>
@@ -227,7 +238,7 @@ export default function HeroSection() {
             <div
                 className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
                 style={{
-                    background: 'linear-gradient(to bottom, transparent, var(--cide-black))',
+                    background: 'linear-gradient(to bottom, transparent, var(--cide-cream))',
                 }}
             />
         </section>
